@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certika — Compliance for Australian general practice</title>
+<meta name="description" content="Certika is an AI-assisted compliance platform for Australian general practice, reviewing clinical documentation and billing against RACGP Standards and MBS requirements, with clinician verification. In active development.">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light">
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Certika — Compliance for Australian general practice">
+<meta property="og:description" content="AI-assisted compliance auditing for Australian general practice. Clinical documentation and billing reviewed against RACGP Standards and MBS requirements, with clinician verification.">
+<meta property="og:url" content="https://certika.com.au/">
+
+<style>
+  :root {
+    --ink:        #14201c;   /* primary text — green-black */
+    --bg:         #f7f8f6;   /* cool off-white, faint green cast */
+    --surface:    #ffffff;
+    --accent:     #0c6b5e;   /* deep clinical green-teal */
+    --accent-deep:#08443c;
+    --muted:      #51615c;   /* secondary text */
+    --faint:      #7c8a85;   /* tertiary / footnote */
+    --line:       #dde3df;   /* hairline */
+
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(28px, 6vw, 64px) clamp(22px, 6vw, 40px) clamp(40px, 6vw, 72px);
+  }
+
+  /* ---- header ---- */
+  header.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .brand .dot { color: var(--accent); }
+  .status {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 11px 4px;
+    white-space: nowrap;
+  }
+
+  .rule {
+    height: 1px;
+    border: 0;
+    background: var(--line);
+    margin: clamp(26px, 5vw, 40px) 0 0;
+  }
+  .rule.accent {
+    background: linear-gradient(90deg, var(--accent) 0 56px, var(--line) 56px);
+  }
+
+  /* ---- hero ---- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: clamp(34px, 6vw, 52px) 0 0;
+  }
+  h1.headline {
+    font-size: clamp(30px, 6.4vw, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.018em;
+    font-weight: 700;
+    margin: 16px 0 0;
+    max-width: 16ch;
+  }
+  .lede {
+    color: var(--muted);
+    font-size: clamp(17px, 2.4vw, 19px);
+    line-height: 1.6;
+    margin: 22px 0 0;
+    max-width: 56ch;
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  /* ---- pillars ---- */
+  section.pillars {
+    margin: clamp(34px, 6vw, 48px) 0 0;
+    border-top: 1px solid var(--line);
+  }
+  .pillar {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 10px 28px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .pillar-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    padding-top: 2px;
+  }
+  .pillar-text { color: var(--ink); margin: 0; }
+
+  /* ---- approach ---- */
+  .approach {
+    margin: clamp(34px, 6vw, 48px) 0 0;
+    color: var(--muted);
+    max-width: 60ch;
+  }
+  .approach p { margin: 0; }
+  .approach p + p { margin-top: 14px; }
+  .approach strong { color: var(--ink); font-weight: 600; }
+
+  /* ---- contact ---- */
+  section.contact { margin: clamp(34px, 6vw, 48px) 0 0; }
+  .contact .eyebrow { margin-top: 0; }
+  .contact-note { color: var(--muted); margin: 14px 0 0; }
+  a.mail {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: clamp(17px, 3vw, 21px);
+    letter-spacing: 0.01em;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 8px;
+    border-bottom: 1.5px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  a.mail:hover { color: var(--accent-deep); border-bottom-color: var(--accent-deep); }
+  a.mail:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  /* ---- footer ---- */
+  footer.foot {
+    margin: clamp(40px, 7vw, 64px) 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--faint);
+  }
+  footer.foot .sep { color: var(--line); }
+
+  /* ---- page-load motion (one quiet moment) ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: rise .7s cubic-bezier(.2,.6,.2,1) forwards;
+  }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 540px) {
+    .pillar { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+    .pillar-label { padding-top: 0; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="wrap reveal">
+
+    <header class="top">
+      <div class="brand">CERTIKA<span class="dot">.</span></div>
+      <div class="status">In development</div>
+    </header>
+    <hr class="rule accent">
+
+    <p class="eyebrow">Compliance for Australian general practice</p>
+    <h1 class="headline">Compliance that reads the record, not just the checklist.</h1>
+    <p class="lede">
+      Certika is an <strong>AI-assisted compliance platform</strong> for Australian general
+      practice. It reviews clinical documentation and billing against RACGP Standards and MBS
+      requirements — and <strong>every finding is checked by a clinician</strong> before it counts.
+    </p>
+
+    <section class="pillars" aria-label="What Certika looks at">
+      <div class="pillar">
+        <div class="pillar-label">Documentation</div>
+        <p class="pillar-text">Clinical notes assessed for adequacy against the RACGP Standards.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-label">Billing</div>
+        <p class="pillar-text">MBS item alignment, to reduce avoidable Medicare audit exposure.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-label">Clinician-verified</div>
+        <p class="pillar-text">A clinician reviews and signs off every finding. Nothing is acted on unread.</p>
+      </div>
+    </section>
+
+    <div class="approach">
+      <p>
+        Certika is <strong>founded by an Australian healthcare practitioner and general-practice
+        owner</strong>, and built around how accreditation and Medicare compliance actually work
+        inside a busy practice.
+      </p>
+      <p>
+        It is designed for <strong>Australian data sovereignty</strong> from the ground up, and
+        aligned to the RACGP Standards (6th edition). The platform is in active development.
+      </p>
+    </div>
+
+    <section class="contact" aria-label="Contact">
+      <p class="eyebrow">Contact</p>
+      <p class="contact-note">For partnership and early-access enquiries:</p>
+      <a class="mail" href="mailto:info@certika.com.au">info@certika.com.au</a>
+    </section>
+
+    <footer class="foot">
+      <span>© 2026 Certika</span>
+      <span class="sep">·</span>
+      <span>Australian general practice compliance</span>
+      <span class="sep">·</span>
+      <span>In active development</span>
+    </footer>
+
+  </div>
+</body>
+</html>
